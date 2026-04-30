@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/alliance-street/"
+title = "Alliance Street Group"
+version = "1.0.0"
+id = "artifacts/alliance-street"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/alliance-street/" ]
+localPort = 19692
+
+[services.development]
+run = "pnpm --filter @workspace/alliance-street run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/alliance-street", "run", "build" ]
+publicDir = "artifacts/alliance-street/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19692"
+BASE_PATH = "/alliance-street/"

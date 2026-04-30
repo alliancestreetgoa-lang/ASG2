@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "-46S-j1TSRAslRGd9IifC"
+uri = "file://artifacts/alliance-street/src/assets/hero-dubai.png"
+type = "image"
+title = "Dubai skyline golden hour"
+
+[[generated]]
+id = "_nGZ8S7bGuPVtepGYc5E6"
+uri = "file://artifacts/alliance-street/src/assets/marble-lobby.png"
+type = "image"
+title = "Premium marble lobby"
+
+[[generated]]
+id = "8n76j9EfCOI7L5mnTlek1"
+uri = "file://artifacts/alliance-street/src/assets/abstract-arch.png"
+type = "image"
+title = "Abstract modern architecture"
+
+[[generated]]
+id = "DVXMVPNr-K0EWefDeXyob"
+uri = "file://artifacts/alliance-street/src/assets/conference-room.png"
+type = "image"
+title = "Conference room sunset"
