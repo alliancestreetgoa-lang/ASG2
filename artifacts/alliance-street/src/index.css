@@ -74,19 +74,19 @@
   --sidebar-border: 0 0% 90%;
   --sidebar-primary: 0 0% 5%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 141 71% 49%;
+  --sidebar-accent: 208 81% 57%;
   --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 141 71% 49%;
+  --sidebar-ring: 208 81% 57%;
 
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 5%;
   --popover-border: 0 0% 92%;
 
-  /* Brand green #25D366 */
-  --primary: 141 71% 49%;
+  /* Brand blue #3898EC (alliancestreet.ae) */
+  --primary: 208 81% 57%;
   --primary-foreground: 0 0% 100%;
 
-  /* Dark callout panel */
+  /* Dark callout panel - kept near-black */
   --secondary: 0 0% 5%;
   --secondary-foreground: 0 0% 100%;
 
@@ -94,14 +94,15 @@
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 40%;
 
-  --accent: 141 71% 95%; /* Soft green halo */
-  --accent-foreground: 141 71% 30%;
+  /* Soft pink halo (#FFDEDE) accent */
+  --accent: 0 100% 94%;
+  --accent-foreground: 208 95% 35%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
   --input: 0 0% 90%;
-  --ring: 141 71% 49%;
+  --ring: 208 81% 57%;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: 'Inter', sans-serif;
@@ -113,8 +114,8 @@
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
   --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
   --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
-  /* Soft neutral aura with green tint */
-  --shadow-aura: 0 20px 40px -10px hsla(141, 30%, 70%, 0.25);
+  /* Soft pink/blue tinted aura */
+  --shadow-aura: 0 20px 40px -10px hsla(0, 80%, 88%, 0.45);
   
   --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
   --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
@@ -136,24 +137,24 @@
   --sidebar-border: 0 0% 90%;
   --sidebar-primary: 0 0% 5%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 141 71% 49%;
+  --sidebar-accent: 208 81% 57%;
   --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 141 71% 49%;
+  --sidebar-ring: 208 81% 57%;
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 5%;
   --popover-border: 0 0% 92%;
-  --primary: 141 71% 49%;
+  --primary: 208 81% 57%;
   --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 5%;
   --secondary-foreground: 0 0% 100%;
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 40%;
-  --accent: 141 71% 95%;
-  --accent-foreground: 141 71% 30%;
+  --accent: 0 100% 94%;
+  --accent-foreground: 208 95% 35%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   --input: 0 0% 90%;
-  --ring: 141 71% 49%;
+  --ring: 208 81% 57%;
 }
 
 @layer base {
@@ -172,5 +173,5 @@
 }
 
 .crimson-frame {
-  background: linear-gradient(180deg, hsl(141, 71%, 49%) 0%, hsl(141, 75%, 38%) 100%);
+  background: linear-gradient(180deg, hsl(208, 81%, 57%) 0%, hsl(208, 95%, 48%) 100%);
 }
