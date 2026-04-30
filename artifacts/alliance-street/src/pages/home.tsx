@@ -6,6 +6,16 @@ import boardroom1 from "@/assets/boardroom-1.png";
 import boardroom2 from "@/assets/boardroom-2.png";
 import founderPortrait from "@/assets/founder-portrait.png";
 
+import cardConsultancy from "@assets/generated_images/card_consultancy_uae.png";
+import cardBanking from "@assets/stock_images/banking_uae.jpg";
+import cardUkAccountancy from "@assets/stock_images/uk_london.jpg";
+import cardBookkeeping from "@assets/stock_images/bookkeeping.jpg";
+import cardIndiaAccounting from "@assets/stock_images/mumbai_business.jpg";
+import cardOrganicFarms from "@assets/stock_images/organic_farm.jpg";
+import cardCargo from "@assets/stock_images/cargo_port.jpg";
+import cardCommodities from "@assets/stock_images/commodities.jpg";
+import cardVasil from "@assets/stock_images/bratislava.jpg";
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -543,7 +553,7 @@ export default function Home() {
       </section>
 
       {/* FINAL SECTION - BUILDING LONG-TERM RELATIONSHIPS */}
-      <section className="relative pt-32 pb-16 pl-6 md:pl-16 pr-6 md:pr-12 bg-white">
+      <section id="contact" className="relative pt-32 pb-16 pl-6 md:pl-16 pr-6 md:pr-12 bg-white">
         <div className="max-w-[1400px] mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-16">
             <h2 className="text-4xl md:text-7xl font-display uppercase mb-4 drop-shadow-sm">BUILDING LONG-TERM<br/>RELATIONSHIPS</h2>
@@ -558,24 +568,29 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             
             {[
-              { loc: "UAE Headquarters", name: "Alliance Street Consultancy", url: "www.alliancestreet.ae" },
-              { loc: "UAE Headquarters", name: "Alliance Street Consultancy - Financial Services", url: "www.alliancestreet.ae/banking" },
-              { loc: "UK Office", name: "Alliance Street Accountancy Ltd", url: "www.alliancestreet.ae" },
-              { loc: "UAE Headquarters", name: "Alliance Street Accounting And Bookkeeping", url: "www.alliancestreet.ae/bookkeeping-accounting" },
-              { loc: "India Office", name: "Alliance Street Accounting Private Limited", url: "www.alliancestreetaccounting.com" },
-              { loc: "India Office", name: "Alliance Street Organic Farms", url: "www.alliancestreetfarms.com" },
-              { loc: "UAE Headquarters", name: "Cargo Connections Logistics", url: "www.cargoconnections.ae" },
-              { loc: "UAE Headquarters", name: "Orryx Commodities", url: "www.orryxcommodities.com" },
-              { loc: "Slovakia Headquarters", name: "Vasil & Partners", url: "www.Vasillegal.com" }
+              { loc: "UAE Headquarters", name: "Alliance Street Consultancy", url: "www.alliancestreet.ae", img: cardConsultancy },
+              { loc: "UAE Headquarters", name: "Alliance Street Consultancy - Financial Services", url: "www.alliancestreet.ae/banking", img: cardBanking },
+              { loc: "UK Office", name: "Alliance Street Accountancy Ltd", url: "www.alliancestreet.ae", img: cardUkAccountancy },
+              { loc: "UAE Headquarters", name: "Alliance Street Accounting And Bookkeeping", url: "www.alliancestreet.ae/bookkeeping-accounting", img: cardBookkeeping },
+              { loc: "India Office", name: "Alliance Street Accounting Private Limited", url: "www.alliancestreetaccounting.com", img: cardIndiaAccounting },
+              { loc: "India Office", name: "Alliance Street Organic Farms", url: "www.alliancestreetfarms.com", img: cardOrganicFarms },
+              { loc: "UAE Headquarters", name: "Cargo Connections Logistics", url: "www.cargoconnections.ae", img: cardCargo },
+              { loc: "UAE Headquarters", name: "Orryx Commodities", url: "www.orryxcommodities.com", img: cardCommodities },
+              { loc: "Slovakia Headquarters", name: "Vasil & Partners", url: "www.Vasillegal.com", img: cardVasil }
             ].map((link, i) => (
               <motion.a 
                 key={i} href={`http://${link.url}`} target="_blank" rel="noreferrer"
                 variants={fadeUp}
-                className="bg-card rounded-[20px] p-6 shadow-aura border border-border/50 hover:border-primary/30 transition-colors flex flex-col group"
+                className="bg-card rounded-[20px] shadow-aura border border-border/50 hover:border-primary/40 hover:shadow-lg transition-all flex flex-col group overflow-hidden"
               >
-                <div className="text-[10px] uppercase text-muted-foreground tracking-widest font-medium mb-3">{link.loc}</div>
-                <div className="font-bold text-sm mb-4 pr-4">{link.name}</div>
-                <div className="text-xs text-primary mt-auto group-hover:underline">{link.url}</div>
+                <div className="aspect-[16/9] overflow-hidden relative">
+                  <img src={link.img} alt={link.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="text-[10px] uppercase text-muted-foreground tracking-widest font-medium mb-3">{link.loc}</div>
+                  <div className="font-bold text-sm mb-4 pr-4">{link.name}</div>
+                  <div className="text-xs text-primary mt-auto group-hover:underline break-all">{link.url}</div>
+                </div>
               </motion.a>
             ))}
 

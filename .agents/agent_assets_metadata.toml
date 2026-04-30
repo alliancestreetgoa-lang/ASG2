@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "-46S-j1TSRAslRGd9IifC"
@@ -48,3 +47,57 @@ id = "jRMvw37Fqi4Hp3tRqriLf"
 uri = "file://artifacts/alliance-street/src/assets/founder-portrait.png"
 type = "image"
 title = "Male founder portrait"
+
+[[generated]]
+id = "DG_JmwZTkM_7yNXH1vbGI"
+uri = "file://card_consultancy_uae.png"
+type = "image"
+title = "generated_image"
+
+[[outputs]]
+id = "xjEbXj3jHyUzMEo_JDI9L"
+uri = "file://attached_assets/stock_images/banking_uae.jpg"
+type = "image"
+title = "Dubai luxury private banking interior with banker meeting client at sleek desk"
+
+[[outputs]]
+id = "bTrwc5CaRkNeclee1lXqV"
+uri = "file://attached_assets/stock_images/bookkeeping.jpg"
+type = "image"
+title = "Modern accounting workspace laptop calculator ledger spreadsheet"
+
+[[outputs]]
+id = "cBCCoY6XrbXccAruZqb_I"
+uri = "file://attached_assets/stock_images/uk_london.jpg"
+type = "image"
+title = "London city skyline with The Gherkin and Shard financial district"
+
+[[outputs]]
+id = "KQlltpWHDA9H3pr3lDAka"
+uri = "file://attached_assets/stock_images/mumbai_business.jpg"
+type = "image"
+title = "Mumbai Bandra-Kurla Complex business district skyline glass towers"
+
+[[outputs]]
+id = "TLPRkl-vvQD_OsGpDt6ug"
+uri = "file://attached_assets/stock_images/organic_farm.jpg"
+type = "image"
+title = "Lush organic farm green crop fields at sunrise India agriculture"
+
+[[outputs]]
+id = "OlzoWMTPUUwkdmqquTBvh"
+uri = "file://attached_assets/stock_images/cargo_port.jpg"
+type = "image"
+title = "Container shipping port cargo ship loading containers cranes"
+
+[[outputs]]
+id = "oAivriX59piiRiZS3CHZh"
+uri = "file://attached_assets/stock_images/bratislava.jpg"
+type = "image"
+title = "Bratislava Slovakia castle Danube river old town aerial"
+
+[[outputs]]
+id = "g_OvjnuP_MozRR5jfp0qg"
+uri = "file://attached_assets/stock_images/commodities.jpg"
+type = "image"
+title = "Gold bars and oil barrels commodities trading market chart"
