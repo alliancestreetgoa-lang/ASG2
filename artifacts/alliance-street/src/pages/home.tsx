@@ -1,315 +1,603 @@
 import { motion } from "framer-motion";
-import { ChevronRight, ArrowRight } from "lucide-react";
-import heroDubai from "@/assets/hero-dubai.png";
-import abstractArch from "@/assets/abstract-arch.png";
-import marbleLobby from "@/assets/marble-lobby.png";
-import conferenceRoom from "@/assets/conference-room.png";
+import { ArrowRight } from "lucide-react";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+import heroTeam from "@/assets/hero-team.png";
+import boardroom1 from "@/assets/boardroom-1.png";
+import boardroom2 from "@/assets/boardroom-2.png";
+import founderPortrait from "@/assets/founder-portrait.png";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
+    transition: { staggerChildren: 0.1 }
   }
 };
 
 const entities = [
-  {
-    id: "01",
-    name: "Alliance Street Consultancy",
-    location: "Dubai, UAE",
-    desc: "Company Formation & International Tax Strategy. Free zone & mainland structuring. Tax-efficient holding frameworks. UAE residency.",
-    stats: "0% Personal Income Tax | 9% Federal Corporate Tax | 500+ Structures",
-    url: "www.alliancestreet.ae"
-  },
-  {
-    id: "02",
-    name: "Consultancy - Financial Services",
-    location: "Dubai, UAE",
-    desc: "Business Finance, Digital Asset Banking & FX Solutions. Banking access leveraging network built from JP Morgan and senior institutional experience.",
-    stats: "Account facilitation in hours | 100% approval rate on facilitated applications",
-    url: "www.alliancestreet.ae/banking"
-  },
-  {
-    id: "03",
-    name: "Accounting & Bookkeeping",
-    location: "Dubai, UAE",
-    desc: "UAE VAT, Corporate Tax & Statutory Audit. FTA Registered. 100% FTA-compliant filings across all managed entities.",
-    stats: "100% FTA Compliance",
-    url: "www.alliancestreet.ae/bookkeeping-accounting"
-  },
-  {
-    id: "04",
-    name: "Accountancy Ltd",
-    location: "United Kingdom",
-    desc: "UK Tax, Accounting & Cross-Border Compliance. HMRC Compliant. Bridges UK/UAE interface with full institutional knowledge of client's UAE structure.",
-    stats: "HMRC Compliant",
-    url: "www.alliancestreetaccounting.com"
-  },
-  {
-    id: "05",
-    name: "Accounting Private Limited",
-    location: "India",
-    desc: "Back-Office Outsourcing & Operational Efficiency for UK Firms. White-label, UK-standard trained.",
-    stats: "40-60% typical back-office cost reduction vs UK",
-    url: null
-  },
-  {
-    id: "06",
-    name: "Organic Farms",
-    location: "India (Goa)",
-    desc: "Sustainable Agriculture & Farming. Premium-quality desi chicken, farm-fresh desi eggs, rabbit meat. Ethical, eco-conscious.",
-    stats: "Distinctive alternative asset",
-    url: "www.alliancestreetfarms.com"
-  },
-  {
-    id: "07",
-    name: "Cargo Connections Logistics",
-    location: "Dubai, UAE",
-    desc: "International Freight & Specialist Logistics. Specialist in regulated cargo most freight operators can't handle.",
-    stats: "Dangerous Goods Certified: ADR, IATA DGR, IMDG",
-    url: "www.cargoconnections.ae"
-  },
-  {
-    id: "08",
-    name: "Vasil & Partners",
-    location: "Slovakia",
-    desc: "M&A & Cross-Border Legal Counsel. Led by JUDr. Martin Vasil, LL.M. EU/UAE-spanning M&A, corporate structuring.",
-    stats: "Track record: €50M+ acquisitions, ICC Paris arbitration",
-    url: "www.Vasillegal.com"
-  },
-  {
-    id: "09",
-    name: "Orryx Commodities",
-    location: "Dubai, UAE",
-    desc: "Global Trading in Metals & Beauty. Metals & metal ores ethically sourced for industrial application. Beauty & perfumery from Europe and Asia.",
-    stats: "Global Sourcing",
-    url: "www.orryxcommodities.com"
-  }
+  { num: "01", name: "Alliance Street Consultancy", tag: "Structuring & Licensing" },
+  { num: "02", name: "Alliance Street Consultancy", tag: "Financial Services" },
+  { num: "03", name: "Alliance Street Accounting & Bookkeeping", tag: "Tax & Compliance" },
+  { num: "04", name: "Alliance Street Accountancy Ltd", tag: "UK Operations" },
+  { num: "05", name: "Alliance Street Accounting Pvt Ltd", tag: "India Operations" },
+  { num: "06", name: "Alliance Street Organic Farms", tag: "Agriculture" },
+  { num: "07", name: "Cargo Connections", tag: "Logistics" },
+  { num: "08", name: "Orryx", tag: "Commodities" },
+  { num: "09", name: "Vasil & Partners", tag: "Legal Advisory" }
 ];
 
 export default function Home() {
   return (
-    <div className="bg-background">
-      {/* Hero Section */}
-      <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroDubai} 
-            alt="Dubai Skyline" 
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-background" />
-        </div>
-        
-        <div className="container relative z-10 mx-auto px-6 md:px-12 text-primary-foreground">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-4xl"
-          >
-            <motion.div variants={fadeInUp} className="mb-6 flex items-center gap-4">
-              <div className="h-[1px] w-12 bg-secondary" />
-              <span className="text-secondary uppercase tracking-[0.2em] text-sm font-medium">Alliance Street Group</span>
-            </motion.div>
-            
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium leading-[1.1] mb-8 text-white drop-shadow-lg">
-              Everything Your Business Needs.<br/>
-              <span className="text-secondary italic">Under One Roof.</span>
-            </motion.h1>
-            
-            <motion.p variants={fadeInUp} className="text-xl md:text-2xl font-light text-primary-foreground/80 mb-12 max-w-2xl leading-relaxed drop-shadow">
-              Where structure meets strategy, across every border. A globally deployed integrated international advisory ecosystem resolving complexity internally.
-            </motion.p>
-            
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6">
-              <a href="#contact" className="bg-secondary text-primary px-8 py-4 font-medium tracking-wide uppercase text-sm hover:bg-white transition-colors duration-300 flex items-center justify-center gap-2">
-                Schedule Consultation <ArrowRight size={16} />
-              </a>
-              <a href="#entities" className="border border-primary-foreground/30 px-8 py-4 font-medium tracking-wide uppercase text-sm hover:bg-primary-foreground/10 transition-colors duration-300 flex items-center justify-center">
-                Explore Entities
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+    <div className="bg-background min-h-[100dvh] relative text-foreground font-sans pb-24 overflow-x-hidden">
+      {/* Crimson Frame Left */}
+      <div className="fixed top-0 left-0 bottom-0 w-2 md:w-4 crimson-frame z-50 pointer-events-none" />
 
-      {/* Stats Section */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-6 divide-x divide-primary-foreground/10 border-y border-primary-foreground/10 py-12">
+      {/* Header Bar */}
+      <header className="pl-6 md:pl-12 pr-6 py-6 flex flex-col md:flex-row md:justify-between md:items-center border-b border-border/50 sticky top-0 bg-background/90 backdrop-blur z-40 gap-4">
+        <div className="text-xs text-muted-foreground uppercase tracking-widest font-medium border-b border-border/50 pb-1 md:border-0 md:pb-0 inline-block">
+          Headquartered in Dubai, UAE &nbsp;|&nbsp; Operating Globally
+        </div>
+        <nav className="flex gap-6 text-sm font-medium uppercase tracking-wide">
+          <a href="#about" className="hover:text-primary transition-colors">About</a>
+          <a href="#ecosystem" className="hover:text-primary transition-colors">Ecosystem</a>
+          <a href="#entities" className="hover:text-primary transition-colors">Entities</a>
+        </nav>
+      </header>
+
+      {/* Section 1 - HERO / GROUP PROFILE */}
+      <section id="about" className="relative pt-20 pb-24 pl-6 md:pl-16 pr-6 md:pr-12">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+            <h1 className="text-5xl md:text-8xl lg:text-[10rem] leading-[0.85] mb-6 font-display uppercase drop-shadow-sm">
+              GROUP<br />PROFILE
+            </h1>
+            <p className="text-xl md:text-3xl text-muted-foreground font-medium mb-16 max-w-3xl">
+              Everything Your Business Needs. <span className="italic font-serif">Under One Roof.</span>
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch">
             <motion.div 
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="text-center px-4"
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="lg:col-span-5 flex flex-col h-full"
             >
-              <div className="text-5xl md:text-6xl font-serif text-secondary mb-4">9</div>
-              <div className="text-sm uppercase tracking-widest text-primary-foreground/70">Specialist Entities</div>
+              <div className="bg-card rounded-[24px] p-8 md:p-10 shadow-aura h-full flex flex-col">
+                <h3 className="font-display text-xl mb-4">THE GROUP PHILOSOPHY</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-8 flex-grow">
+                  Alliance Street Group operates as an integrated international advisory ecosystem, UAE-headquartered, globally deployed. Where conventional firms refer clients outward at every inflection point, the Group resolves complexity internally: from initial corporate structuring and banking access through to M&A execution, cross-border tax compliance, and operational logistics.
+                </p>
+                <div className="grid grid-cols-2 gap-y-8 gap-x-4 pt-8 border-t border-border">
+                  <div>
+                    <div className="text-3xl md:text-4xl font-display mb-1 text-foreground">9</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">Specialist Entities</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-display mb-1 text-foreground">4</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">Jurisdictions</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-display mb-1 text-foreground">1000+</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">Structures Built</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-display mb-1 text-foreground">17+</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">Years' Experience</div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
+            
             <motion.div 
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="text-center px-4"
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="lg:col-span-7 rounded-[24px] overflow-hidden shadow-aura relative min-h-[400px] lg:min-h-full"
             >
-              <div className="text-5xl md:text-6xl font-serif text-secondary mb-4">4</div>
-              <div className="text-sm uppercase tracking-widest text-primary-foreground/70">Jurisdictions</div>
-            </motion.div>
-            <motion.div 
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="text-center px-4"
-            >
-              <div className="text-5xl md:text-6xl font-serif text-secondary mb-4">1000+</div>
-              <div className="text-sm uppercase tracking-widest text-primary-foreground/70">Structures Built</div>
-            </motion.div>
-            <motion.div 
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="text-center px-4"
-            >
-              <div className="text-5xl md:text-6xl font-serif text-secondary mb-4">17+</div>
-              <div className="text-sm uppercase tracking-widest text-primary-foreground/70">Years' Experience</div>
+                <img 
+                  src={heroTeam} 
+                  alt="Alliance Street Group Team" 
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* About / Recognition */}
-      <section id="about" className="py-32 relative">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}>
-              <h2 className="text-4xl md:text-5xl font-serif mb-8 text-foreground">The Gravitas of Institutional Experience</h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                We operate as an integrated international advisory ecosystem. Where conventional firms refer clients outward at every inflection point, the Group resolves complexity internally.
-              </p>
-              <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-                From initial corporate structuring and banking access through to M&A execution, cross-border tax compliance, and operational logistics. Led by principals with deep institutional backgrounds, including JP Morgan.
+      {/* Section 2 - THE ENTITY ECOSYSTEM */}
+      <section id="ecosystem" className="relative py-24 pl-6 md:pl-16 pr-6 md:pr-12 bg-white/50">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.h2 
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+            className="text-4xl md:text-7xl mb-16 font-display uppercase drop-shadow-sm"
+          >
+            THE ENTITY<br/>ECOSYSTEM
+          </motion.h2>
+          
+          <motion.div 
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          >
+            {entities.map((ent, i) => (
+              <motion.div 
+                key={i} variants={fadeUp}
+                className="bg-card rounded-[24px] p-8 shadow-aura hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div className="text-5xl font-display text-muted-foreground/30 mb-6">{ent.num}</div>
+                <h3 className="font-bold text-lg leading-tight mb-2 pr-4">{ent.name}</h3>
+                <p className="text-sm text-muted-foreground">{ent.tag}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section 3 - INDIVIDUAL ENTITIES */}
+      <section id="entities" className="py-24 flex flex-col gap-32">
+        
+        {/* ENTITY 01 */}
+        <div className="pl-6 md:pl-16 pr-6 md:pr-12 max-w-[1400px] mx-auto w-full">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-8">
+            <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block">
+              ENTITY 01, DUBAI, UAE &nbsp;|&nbsp; CORPORATE STRUCTURING
+            </div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6">
+              <div className="rounded-[24px] overflow-hidden aspect-[4/3] shadow-aura">
+                <img src={boardroom1} alt="Corporate Meeting" className="w-full h-full object-cover" />
+              </div>
+              <div className="bg-secondary text-secondary-foreground rounded-[24px] p-8 shadow-aura">
+                <p className="italic text-sm leading-relaxed mb-6">"Strategic foundations dictate long-term operational viability. We build structures designed to scale, pivot, and endure."</p>
+                <div className="text-xs uppercase tracking-widest text-white/50">Core Philosophy</div>
+              </div>
+            </motion.div>
+            
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-7 flex flex-col">
+              <h2 className="text-4xl md:text-6xl font-display uppercase mb-4 drop-shadow-sm">ALLIANCE STREET<br/>CONSULTANCY</h2>
+              <h3 className="text-xl md:text-2xl text-muted-foreground mb-8">Corporate Structuring & Licensing</h3>
+              
+              <p className="text-base text-muted-foreground leading-relaxed mb-12">
+                The foundational entity of the Group. We design and execute complex corporate structures across Mainland, Free Zone, and Offshore jurisdictions in the UAE. Our approach goes beyond simple company formation; we engineer bespoke corporate vehicles optimized for tax efficiency, asset protection, and operational flexibility.
               </p>
               
-              <div className="bg-accent/30 p-8 border-l-4 border-secondary">
-                <h3 className="uppercase tracking-widest text-sm font-medium mb-4 text-primary">Recognition & Features</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <ChevronRight className="text-secondary shrink-0 mt-1" size={16} />
-                    <span>Nominated Best Business Consulting Firm in Asia (Asia Business Outlook)</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <ChevronRight className="text-secondary shrink-0 mt-1" size={16} />
-                    <span>Featured in Forbes, Daily Mail, Business Insider, Gulf News, Khaleej Times</span>
-                  </li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-auto">
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full">
+                  <h4 className="font-display text-sm mb-6 uppercase tracking-wider">Core Services</h4>
+                  <ul className="space-y-4 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Free Zone & Mainland Setup</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Holding Company Structures</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Foundation & Trust Formation</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Golden Visa Processing</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full flex flex-col justify-between">
+                  <div>
+                    <div className="text-4xl font-display mb-1">500+</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Structures Built</div>
+                  </div>
+                  <div>
+                    <div className="text-4xl font-display mb-1">0%</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Personal Income Tax</div>
+                  </div>
+                  <div>
+                    <div className="text-4xl font-display mb-1">9%</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">Federal Corporate Tax</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* ENTITY 02 */}
+        <div className="pl-6 md:pl-16 pr-6 md:pr-12 max-w-[1400px] mx-auto w-full">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-8">
+            <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block">
+              ENTITY 02, DUBAI, UAE &nbsp;|&nbsp; BANKING ACCESS
+            </div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6 lg:order-last">
+              <div className="rounded-[24px] overflow-hidden aspect-[4/3] shadow-aura">
+                <img src={boardroom2} alt="Executive Addressing Team" className="w-full h-full object-cover" />
+              </div>
+              <div className="bg-secondary text-secondary-foreground rounded-[24px] p-8 shadow-aura">
+                <p className="italic text-sm leading-relaxed mb-6">"Capital mobility is the lifeblood of international business. We bypass the friction of modern compliance through pre-vetted institutional relationships."</p>
+                <div className="text-xs uppercase tracking-widest text-white/50">Value Proposition</div>
+              </div>
+            </motion.div>
+            
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-7 flex flex-col">
+              <h2 className="text-4xl md:text-6xl font-display uppercase mb-4 drop-shadow-sm">ALLIANCE STREET<br/>FINANCIAL SERVICES</h2>
+              <h3 className="text-xl md:text-2xl text-muted-foreground mb-8">Corporate Banking & Capital Access</h3>
+              
+              <p className="text-base text-muted-foreground leading-relaxed mb-12">
+                Securing reliable corporate banking in the UAE requires meticulous compliance architecture. We maintain direct channels with tier-1 institutions (Emirates NBD, Wio, Mashreq) and global digital banks, ensuring our clients achieve operational liquidity without the typical friction and delays of the modern KYC environment.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-auto">
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full">
+                  <h4 className="font-display text-sm mb-6 uppercase tracking-wider">Core Services</h4>
+                  <ul className="space-y-4 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Tier-1 Corporate Bank Accounts</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Multi-Currency Digital Banking</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> KYC/AML Compliance Preparation</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Trade Finance Facilities</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full flex flex-col justify-between">
+                  <div>
+                    <div className="text-4xl font-display mb-1">100%</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Approval Rate (Pre-vetted)</div>
+                  </div>
+                  <div>
+                    <div className="text-4xl font-display mb-1">48-72</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Hours Average Timeline</div>
+                  </div>
+                  <div>
+                    <div className="text-xl font-bold mb-1">Tier-1 Network</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">Institutional Relationships</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* ENTITY 03 */}
+        <div className="pl-6 md:pl-16 pr-6 md:pr-12 max-w-[1400px] mx-auto w-full">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-8">
+            <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block">
+              ENTITY 03, DUBAI, UAE &nbsp;|&nbsp; REGULATORY COMPLIANCE
+            </div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6">
+              <div className="rounded-[24px] overflow-hidden aspect-[4/3] shadow-aura">
+                <img src={boardroom1} alt="Tax and Compliance Team" className="w-full h-full object-cover object-bottom" />
+              </div>
+              <div className="bg-secondary text-secondary-foreground rounded-[24px] p-8 shadow-aura">
+                <p className="italic text-sm leading-relaxed mb-6">"In the new era of UAE taxation, compliance is no longer a localized function—it requires a forensic, international approach."</p>
+                <div className="text-xs uppercase tracking-widest text-white/50">Operational Standard</div>
+              </div>
+            </motion.div>
+            
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-7 flex flex-col">
+              <h2 className="text-4xl md:text-6xl font-display uppercase mb-4 drop-shadow-sm">ALLIANCE STREET<br/>ACCOUNTING & BOOKKEEPING</h2>
+              <h3 className="text-xl md:text-2xl text-muted-foreground mb-8">Corporate Tax & Regulatory Compliance</h3>
+              
+              <p className="text-base text-muted-foreground leading-relaxed mb-12">
+                As the UAE transitions into a regulated tax environment, we provide forensic accounting and rigorous compliance frameworks. We ensure that our clients’ ledgers seamlessly integrate with their global tax strategy, managing the complexities of VAT, Corporate Tax, and ESR (Economic Substance Regulations) with absolute precision.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-auto">
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full">
+                  <h4 className="font-display text-sm mb-6 uppercase tracking-wider">Core Services</h4>
+                  <ul className="space-y-4 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Corporate Tax Registration & Filing</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> VAT Compliance & Returns</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> ESR & UBO Declarations</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Cloud-Based Real-Time Ledgers</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full flex flex-col justify-between">
+                  <div>
+                    <div className="text-4xl font-display mb-1">100%</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">FTA-Compliant Protocols</div>
+                  </div>
+                  <div>
+                    <div className="text-xl font-bold mb-1">Real-Time</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">Integrated Cloud Ledgers</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* ENTITY 04 / 05 - Condensed for pacing, matching the prompt's instruction that they each get a section */}
+        {/* ENTITY 04 */}
+        <div className="pl-6 md:pl-16 pr-6 md:pr-12 max-w-[1400px] mx-auto w-full">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-8">
+            <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block">
+              ENTITY 04, LONDON, UK &nbsp;|&nbsp; EUROPEAN HUB
+            </div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6 lg:order-last">
+              <div className="rounded-[24px] overflow-hidden aspect-[4/3] shadow-aura">
+                <img src={boardroom2} alt="London Operations" className="w-full h-full object-cover object-top" />
+              </div>
+              <div className="bg-secondary text-secondary-foreground rounded-[24px] p-8 shadow-aura">
+                <p className="italic text-sm leading-relaxed mb-6">"Bridging the regulatory gap between the Gulf and Europe."</p>
+              </div>
+            </motion.div>
+            
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-7 flex flex-col">
+              <h2 className="text-4xl md:text-6xl font-display uppercase mb-4 drop-shadow-sm">ALLIANCE STREET<br/>ACCOUNTANCY LTD</h2>
+              <h3 className="text-xl md:text-2xl text-muted-foreground mb-8">UK Market Operations</h3>
+              <p className="text-base text-muted-foreground leading-relaxed mb-12">
+                Our London-based entity serves as the strategic bridge for European clients expanding into the UAE, and UAE entities accessing the UK market. We provide localized UK tax advisory, HMRC compliance, and seamless cross-border structuring.
+              </p>
+              <div className="bg-card rounded-[24px] p-8 shadow-aura mt-auto">
+                <h4 className="font-display text-sm mb-6 uppercase tracking-wider">Core Services</h4>
+                <ul className="space-y-4 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> UK Company Formation & Structuring</li>
+                  <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> HMRC Tax Compliance & Returns</li>
+                  <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Cross-Border Profit Repatriation</li>
                 </ul>
               </div>
             </motion.div>
+          </div>
+        </div>
+
+        {/* ENTITY 05 */}
+        <div className="pl-6 md:pl-16 pr-6 md:pr-12 max-w-[1400px] mx-auto w-full">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-8">
+            <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block">
+              ENTITY 05, MUMBAI, INDIA &nbsp;|&nbsp; OPERATIONAL EFFICIENCY
+            </div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6">
+              <div className="rounded-[24px] overflow-hidden aspect-[4/3] shadow-aura">
+                <img src={boardroom1} alt="India Operations" className="w-full h-full object-cover object-right" />
+              </div>
+              <div className="bg-secondary text-secondary-foreground rounded-[24px] p-8 shadow-aura">
+                <p className="italic text-sm leading-relaxed mb-6">"Scale requires leverage. We provide institutional-grade back-office support without the overhead overhead."</p>
+                <div className="text-xs uppercase tracking-widest text-white/50">Efficiency Metric</div>
+              </div>
+            </motion.div>
             
-            <motion.div 
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="relative h-[600px] w-full"
-            >
-              <img src={marbleLobby} alt="Premium Corporate Environment" className="w-full h-full object-cover shadow-2xl" />
-              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-secondary/10 backdrop-blur-xl border border-secondary/20 hidden md:block" />
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-7 flex flex-col">
+              <h2 className="text-4xl md:text-6xl font-display uppercase mb-4 drop-shadow-sm">ALLIANCE STREET<br/>ACCOUNTING PVT LTD</h2>
+              <h3 className="text-xl md:text-2xl text-muted-foreground mb-8">Outsourced Enterprise Support</h3>
+              
+              <p className="text-base text-muted-foreground leading-relaxed mb-12">
+                Operating from India, this entity powers the Group’s back-office capabilities and provides white-labeled BPO services to our global clients. By centralizing high-volume accounting, data entry, and administrative functions, we deliver UK/UAE-standard execution at transformative cost efficiencies.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-auto">
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full">
+                  <h4 className="font-display text-sm mb-6 uppercase tracking-wider">Core Services</h4>
+                  <ul className="space-y-4 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Enterprise Bookkeeping</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> White-Label Accounting</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Payroll & Admin Processing</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full flex flex-col justify-between">
+                  <div>
+                    <div className="text-4xl font-display mb-1">40-60%</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Cost Reduction</div>
+                  </div>
+                  <div>
+                    <div className="text-xl font-bold mb-1">UK/UAE-Standard</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Execution Quality</div>
+                  </div>
+                  <div>
+                    <div className="text-xl font-bold mb-1">White-Label</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">BPO Capabilities</div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
-      </section>
 
-      {/* Philosophy Section */}
-      <section id="philosophy" className="py-32 bg-card relative overflow-hidden border-y border-border">
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
-          <img src={abstractArch} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="container mx-auto px-6 md:px-12 relative z-10 text-center max-w-4xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-            <div className="mx-auto w-16 h-16 bg-secondary/20 flex items-center justify-center mb-8 rotate-45">
-              <div className="w-8 h-8 border border-secondary" />
-            </div>
-            <h2 className="text-3xl md:text-5xl font-serif mb-10 leading-tight">"Each engagement begins with a confidential, obligation-free strategy consultation."</h2>
-            <p className="text-xl text-muted-foreground font-light leading-relaxed">
-              We operate strictly by appointment. During consultation, we assess the client's current structure, identify inefficiencies, and outline a cohesive multi-entity advisory approach.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Entities Section */}
-      <section id="entities" className="py-32 bg-background">
-        <div className="container mx-auto px-6 md:px-12">
-          <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-            className="mb-20 max-w-2xl"
-          >
-            <h2 className="text-4xl md:text-5xl font-serif mb-6">Our 9 Specialist Entities</h2>
-            <p className="text-lg text-muted-foreground">Deep domain expertise across corporate structuring, banking, legal, and operational logistics. Integrated seamlessly.</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {entities.map((entity, index) => (
-              <motion.div 
-                key={entity.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="group relative bg-card border border-border hover:border-secondary transition-colors duration-500 p-8 flex flex-col h-full"
-              >
-                <div className="text-secondary font-serif text-3xl mb-6 opacity-50 group-hover:opacity-100 transition-opacity">{entity.id}</div>
-                <h3 className="text-xl font-serif font-medium mb-2 group-hover:text-primary transition-colors">{entity.name}</h3>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground mb-6 pb-6 border-b border-border">{entity.location}</div>
-                
-                <p className="text-sm text-foreground/80 mb-8 flex-grow leading-relaxed">
-                  {entity.desc}
+        {/* ENTITIES 06, 07, 08 - Multi-column block */}
+        <div className="pl-6 md:pl-16 pr-6 md:pr-12 max-w-[1400px] mx-auto w-full">
+           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              
+              {/* Entity 06 */}
+              <motion.div variants={fadeUp} className="flex flex-col gap-6">
+                <div>
+                  <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block mb-4">
+                    ENTITY 06 &nbsp;|&nbsp; AGRICULTURE
+                  </div>
+                  <h2 className="text-3xl font-display uppercase mb-2">ORGANIC FARMS</h2>
+                  <h3 className="text-sm text-muted-foreground">Sustainable Agriculture (India)</h3>
+                </div>
+                <div className="bg-secondary h-32 rounded-[24px] shadow-aura flex items-center justify-center p-6 text-center text-white/40 font-display uppercase text-sm border border-white/5">
+                  [Logo Placeholder]
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
+                  A tangible asset division of the Group, investing directly in sustainable, high-yield agricultural operations in India. We apply our corporate structuring rigor to physical agribusiness, ensuring compliance, ethical sourcing, and optimized export logistics.
                 </p>
-                
-                <div className="mt-auto pt-6 bg-accent/20 -mx-8 px-8 -mb-8 pb-8">
-                  <p className="text-xs font-medium text-primary mb-4">{entity.stats}</p>
-                  {entity.url && (
-                    <a href={`http://${entity.url}`} className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-secondary hover:text-primary transition-colors">
-                      Visit Website <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  )}
+                <div className="bg-card rounded-[24px] p-6 shadow-aura">
+                  <h4 className="font-display text-xs mb-4 uppercase tracking-wider">Core Focus</h4>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3"><div className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" /> Sustainable Cultivation</li>
+                    <li className="flex items-start gap-3"><div className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" /> Agri-Asset Management</li>
+                  </ul>
                 </div>
               </motion.div>
+
+              {/* Entity 07 */}
+              <motion.div variants={fadeUp} className="flex flex-col gap-6">
+                <div>
+                  <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block mb-4">
+                    ENTITY 07 &nbsp;|&nbsp; LOGISTICS
+                  </div>
+                  <h2 className="text-3xl font-display uppercase mb-2">CARGO CONNECTIONS</h2>
+                  <h3 className="text-sm text-muted-foreground">Global Freight (UAE)</h3>
+                </div>
+                <div className="bg-secondary h-32 rounded-[24px] shadow-aura flex items-center justify-center p-6 text-center text-white/40 font-display uppercase text-sm border border-white/5">
+                  [Logo Placeholder]
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
+                  The Group's proprietary freight forwarding and logistics arm. Cargo Connections eliminates supply chain bottlenecks for our clients trading physical goods globally, integrating seamlessly with our trade finance and corporate tax advisory units.
+                </p>
+                <div className="bg-card rounded-[24px] p-6 shadow-aura">
+                  <h4 className="font-display text-xs mb-4 uppercase tracking-wider">Core Focus</h4>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3"><div className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" /> Air & Sea Freight Forwarding</li>
+                    <li className="flex items-start gap-3"><div className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" /> Customs Clearance</li>
+                  </ul>
+                </div>
+              </motion.div>
+
+              {/* Entity 08 */}
+              <motion.div variants={fadeUp} className="flex flex-col gap-6">
+                <div>
+                  <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block mb-4">
+                    ENTITY 08 &nbsp;|&nbsp; COMMODITIES
+                  </div>
+                  <h2 className="text-3xl font-display uppercase mb-2">ORRYX</h2>
+                  <h3 className="text-sm text-muted-foreground">Global Trading (UAE)</h3>
+                </div>
+                <div className="bg-secondary h-32 rounded-[24px] shadow-aura flex items-center justify-center p-6 text-center text-white/40 font-display uppercase text-sm border border-white/5">
+                  [Logo Placeholder]
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
+                  A dedicated commodities trading house operating from the UAE. Orryx leverages the Group's banking network and logistics capabilities to execute physical trades across energy, metals, and agricultural sectors worldwide.
+                </p>
+                <div className="bg-card rounded-[24px] p-6 shadow-aura">
+                  <h4 className="font-display text-xs mb-4 uppercase tracking-wider">Core Focus</h4>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3"><div className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" /> Energy & Metals Trading</li>
+                    <li className="flex items-start gap-3"><div className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" /> Trade Execution</li>
+                  </ul>
+                </div>
+              </motion.div>
+
+           </motion.div>
+        </div>
+
+        {/* ENTITY 09 - VASIL & PARTNERS */}
+        <div className="pl-6 md:pl-16 pr-6 md:pr-12 max-w-[1400px] mx-auto w-full">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-8">
+            <div className="text-xs uppercase tracking-widest font-medium border-b border-border/50 pb-2 inline-block">
+              ENTITY 09, BRATISLAVA, SLOVAKIA &nbsp;|&nbsp; LEGAL ADVISORY
+            </div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6">
+              <div className="rounded-[24px] overflow-hidden aspect-[4/3] shadow-aura">
+                <img src={founderPortrait} alt="JUDr. Martin Vasil" className="w-full h-full object-cover object-top" />
+              </div>
+              <div className="bg-secondary text-secondary-foreground rounded-[24px] p-8 shadow-aura">
+                <h4 className="font-bold text-lg mb-2">JUDr. Martin Vasil, LL.M.</h4>
+                <div className="text-xs uppercase tracking-widest text-primary mb-4">Founding Partner &middot; Corporate & M&A Law</div>
+                <p className="text-sm leading-relaxed text-white/80">
+                  Dual-qualified legal expert bridging the UAE and European jurisdictions. Specializes in complex cross-border M&A, high-stakes international arbitration, and robust corporate restructuring for UHNW families and multi-nationals.
+                </p>
+              </div>
+            </motion.div>
+            
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-7 flex flex-col">
+              <h2 className="text-4xl md:text-6xl font-display uppercase mb-4 drop-shadow-sm">VASIL &<br/>PARTNERS</h2>
+              <h3 className="text-xl md:text-2xl text-muted-foreground mb-8">Premium Legal Counsel</h3>
+              
+              <p className="text-base text-muted-foreground leading-relaxed mb-12">
+                A Tier-1 law firm headquartered in Slovakia, providing the Group’s clients with elite European legal defense and structuring. Vasil & Partners executes high-value M&A transactions, international arbitration, and complex legal restructuring, acting as the ultimate protective shield for our clients' assets and operations.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-auto">
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full">
+                  <h4 className="font-display text-sm mb-6 uppercase tracking-wider">Core Services</h4>
+                  <ul className="space-y-4 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Cross-Border M&A Execution</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> ICC International Arbitration</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Asset Protection Trusts</li>
+                    <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" /> Commercial Litigation</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-card rounded-[24px] p-8 shadow-aura h-full flex flex-col justify-between">
+                  <div>
+                    <div className="text-2xl md:text-3xl font-display mb-1">€50M+</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Agriculture Acquisition</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl md:text-3xl font-display mb-1">€24M</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Mineral Water Deal</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl md:text-3xl font-display mb-1">€40M+</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold mb-6">Corporate Restructuring</div>
+                  </div>
+                  <div>
+                    <div className="text-xl font-bold mb-1">ICC Paris</div>
+                    <div className="text-[10px] uppercase text-muted-foreground tracking-wider font-semibold">Arbitration Representation</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+      </section>
+
+      {/* FINAL SECTION - BUILDING LONG-TERM RELATIONSHIPS */}
+      <section className="relative pt-32 pb-16 pl-6 md:pl-16 pr-6 md:pr-12 bg-white">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-16">
+            <h2 className="text-4xl md:text-7xl font-display uppercase mb-4 drop-shadow-sm">BUILDING LONG-TERM<br/>RELATIONSHIPS</h2>
+            <p className="text-xl md:text-3xl text-muted-foreground font-medium italic font-serif mb-8">
+              Where structure meets strategy, across every border.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
+              The Group operates by appointment. Each engagement begins with a confidential, obligation-free strategy consultation, during which we assess the client's current structure, identify inefficiencies, and outline a cohesive multi-entity advisory approach.
+            </p>
+          </motion.div>
+          
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            
+            {[
+              { loc: "UAE Headquarters", name: "Alliance Street Consultancy", url: "www.alliancestreet.ae" },
+              { loc: "UAE Headquarters", name: "Alliance Street Consultancy - Financial Services", url: "www.alliancestreet.ae/banking" },
+              { loc: "UK Office", name: "Alliance Street Accountancy Ltd", url: "www.alliancestreet.ae" },
+              { loc: "UAE Headquarters", name: "Alliance Street Accounting And Bookkeeping", url: "www.alliancestreet.ae/bookkeeping-accounting" },
+              { loc: "India Office", name: "Alliance Street Accounting Private Limited", url: "www.alliancestreetaccounting.com" },
+              { loc: "India Office", name: "Alliance Street Organic Farms", url: "www.alliancestreetfarms.com" },
+              { loc: "UAE Headquarters", name: "Cargo Connections Logistics", url: "www.cargoconnections.ae" },
+              { loc: "UAE Headquarters", name: "Orryx Commodities", url: "www.orryxcommodities.com" },
+              { loc: "Slovakia Headquarters", name: "Vasil & Partners", url: "www.Vasillegal.com" }
+            ].map((link, i) => (
+              <motion.a 
+                key={i} href={`http://${link.url}`} target="_blank" rel="noreferrer"
+                variants={fadeUp}
+                className="bg-card rounded-[20px] p-6 shadow-aura border border-border/50 hover:border-primary/30 transition-colors flex flex-col group"
+              >
+                <div className="text-[10px] uppercase text-muted-foreground tracking-widest font-medium mb-3">{link.loc}</div>
+                <div className="font-bold text-sm mb-4 pr-4">{link.name}</div>
+                <div className="text-xs text-primary mt-auto group-hover:underline">{link.url}</div>
+              </motion.a>
             ))}
+
+          </motion.div>
+          
+          <div className="mt-32 pt-8 border-t border-border flex justify-between items-center text-xs text-muted-foreground uppercase tracking-wider font-medium">
+             <div>&copy; {new Date().getFullYear()} ALLIANCE STREET GROUP</div>
+             <div>+971 42 62 7928</div>
           </div>
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section id="contact" className="relative py-32 bg-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img src={conferenceRoom} alt="Boardroom" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
-        </div>
-        
-        <div className="container relative z-10 mx-auto px-6 md:px-12 text-center max-w-3xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-            <h2 className="text-4xl md:text-6xl font-serif mb-8 text-white">Resolve Complexity.</h2>
-            <p className="text-xl text-primary-foreground/80 mb-12 font-light">
-              Connect with our principals to discuss your structural, financial, or operational requirements.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12">
-              <div className="text-center sm:text-right border-b sm:border-b-0 sm:border-r border-primary-foreground/20 pb-6 sm:pb-0 sm:pr-8">
-                <div className="text-sm uppercase tracking-widest text-secondary mb-2">Call Us</div>
-                <div className="text-2xl font-serif text-white">+971 42 62 7928</div>
-              </div>
-              <div className="text-center sm:text-left pt-6 sm:pt-0 sm:pl-8">
-                <div className="text-sm uppercase tracking-widest text-secondary mb-2">Global Headquarters</div>
-                <div className="text-lg text-white">Dubai, UAE</div>
-              </div>
-            </div>
-            
-            <button className="bg-secondary text-primary px-10 py-5 font-medium tracking-wide uppercase text-sm hover:bg-white transition-colors duration-300 inline-flex items-center gap-3">
-              Request Strategy Consultation <ArrowRight size={18} />
-            </button>
-          </motion.div>
-        </div>
-      </section>
+      {/* Sticky CTA */}
+      <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50">
+        <a href="tel:+97142627928" className="flex items-center gap-4 bg-secondary text-white px-5 py-3 md:px-6 md:py-4 rounded-[20px] shadow-2xl hover:scale-105 transition-transform">
+           <div className="flex flex-col">
+              <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/70">Contact Us</span>
+              <span className="font-display text-base md:text-lg whitespace-nowrap">+971 42 62 7928</span>
+           </div>
+           <ArrowRight size={18} className="shrink-0" />
+        </a>
+      </div>
     </div>
   );
 }

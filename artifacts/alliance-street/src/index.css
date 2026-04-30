@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -41,72 +42,79 @@
 
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
+  --font-display: var(--app-font-display);
   --font-mono: var(--app-font-mono);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 12px);
+  --radius-3xl: calc(var(--radius) + 20px);
 }
 
-/* LIGHT MODE */
 :root {
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
 
   --opaque-button-border-intensity: -8;
 
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  /* Alabaster cream */
+  --background: 20 30% 97%;
+  /* Near-black ink */
+  --foreground: 0 0% 8%;
 
-  --background: 40 20% 98%; /* Alabaster */
-  --foreground: 220 50% 10%; /* Very dark blue */
-
-  --border: 220 20% 85%;
+  --border: 20 15% 90%;
   --card: 0 0% 100%;
-  --card-foreground: 220 50% 10%;
-  --card-border: 220 20% 90%;
+  --card-foreground: 0 0% 8%;
+  --card-border: 20 15% 90%;
 
-  --sidebar: 40 20% 96%;
-  --sidebar-foreground: 220 50% 10%;
-  --sidebar-border: 220 20% 85%;
-  --sidebar-primary: 220 80% 15%;
+  --sidebar: 20 30% 97%;
+  --sidebar-foreground: 0 0% 8%;
+  --sidebar-border: 20 15% 90%;
+  --sidebar-primary: 0 0% 12%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 40 40% 60%;
-  --sidebar-accent-foreground: 220 50% 10%;
-  --sidebar-ring: 40 40% 60%;
+  --sidebar-accent: 355 75% 28%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 355 75% 28%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 220 50% 10%;
-  --popover-border: 220 20% 85%;
+  --popover-foreground: 0 0% 8%;
+  --popover-border: 20 15% 90%;
 
-  --primary: 220 80% 15%; /* Midnight Blue */
+  /* Crimson frame / accent */
+  --primary: 355 75% 28%; 
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 40 40% 60%; /* Champagne Gold */
-  --secondary-foreground: 220 80% 15%;
+  /* Dark callout panel */
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 100%;
 
-  --muted: 220 15% 92%;
-  --muted-foreground: 220 20% 40%;
+  /* Muted text */
+  --muted: 20 15% 92%;
+  --muted-foreground: 0 0% 35%;
 
-  --accent: 40 30% 90%;
-  --accent-foreground: 220 80% 15%;
+  --accent: 355 75% 95%; /* Soft pink halo */
+  --accent-foreground: 355 75% 28%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --input: 220 20% 85%;
-  --ring: 220 80% 15%;
+  --input: 20 15% 90%;
+  --ring: 355 75% 28%;
 
   --app-font-sans: 'Inter', sans-serif;
-  --app-font-serif: 'Playfair Display', Georgia, serif;
+  --app-font-serif: 'Inter', sans-serif;
+  --app-font-display: 'Archivo Black', sans-serif;
   --app-font-mono: Menlo, monospace;
-  --radius: 0; /* Sharp corners for institutional feel */
+  --radius: 16px; 
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
   --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
   --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  /* Very soft pink/peach aura */
+  --shadow-aura: 0 20px 40px -10px hsla(355, 40%, 80%, 0.4);
   
   --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
   --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
@@ -116,52 +124,36 @@
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
-
-  --opaque-button-border-intensity: 9; 
-
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
-
-  --background: 220 30% 5%; /* Very dark charcoal */
-  --foreground: 40 20% 98%;
-
-  --border: 220 20% 15%;
-  --card: 220 30% 8%;
-  --card-foreground: 40 20% 98%;
-  --card-border: 220 20% 15%;
-
-  --sidebar: 220 30% 5%;
-  --sidebar-foreground: 40 20% 98%;
-  --sidebar-border: 220 20% 15%;
-  --sidebar-primary: 40 40% 60%;
-  --sidebar-primary-foreground: 220 30% 5%;
-  --sidebar-accent: 220 20% 15%;
-  --sidebar-accent-foreground: 40 20% 98%;
-  --sidebar-ring: 40 40% 60%;
-
-  --popover: 220 30% 8%;
-  --popover-foreground: 40 20% 98%;
-  --popover-border: 220 20% 15%;
-
-  --primary: 40 40% 60%; /* Champagne Gold */
-  --primary-foreground: 220 80% 15%;
-
-  --secondary: 220 30% 15%;
-  --secondary-foreground: 40 20% 98%;
-
-  --muted: 220 20% 15%;
-  --muted-foreground: 220 10% 60%;
-
-  --accent: 220 30% 15%;
-  --accent-foreground: 40 20% 98%;
-
-  --destructive: 0 62% 30%;
-  --destructive-foreground: 40 20% 98%;
-
-  --input: 220 20% 15%;
-  --ring: 40 40% 60%;
+  /* Using same colors, this is primarily a light-mode brand */
+  --background: 20 30% 97%;
+  --foreground: 0 0% 8%;
+  --border: 20 15% 90%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 8%;
+  --card-border: 20 15% 90%;
+  --sidebar: 20 30% 97%;
+  --sidebar-foreground: 0 0% 8%;
+  --sidebar-border: 20 15% 90%;
+  --sidebar-primary: 0 0% 12%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 355 75% 28%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 355 75% 28%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 8%;
+  --popover-border: 20 15% 90%;
+  --primary: 355 75% 28%; 
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 20 15% 92%;
+  --muted-foreground: 0 0% 35%;
+  --accent: 355 75% 95%;
+  --accent-foreground: 355 75% 28%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 20 15% 90%;
+  --ring: 355 75% 28%;
 }
 
 @layer base {
@@ -174,6 +166,11 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight;
+    @apply font-display tracking-tight uppercase text-foreground;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
   }
+}
+
+.crimson-frame {
+  background: linear-gradient(180deg, hsl(355, 75%, 28%) 0%, hsl(355, 85%, 20%) 100%);
 }

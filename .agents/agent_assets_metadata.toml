@@ -24,3 +24,27 @@ id = "DVXMVPNr-K0EWefDeXyob"
 uri = "file://artifacts/alliance-street/src/assets/conference-room.png"
 type = "image"
 title = "Conference room sunset"
+
+[[generated]]
+id = "687mZthdDpzm536O5Ctro"
+uri = "file://artifacts/alliance-street/src/assets/hero-team.png"
+type = "image"
+title = "Professional business team standing"
+
+[[generated]]
+id = "wtyk06d7CCkSagIi081fq"
+uri = "file://artifacts/alliance-street/src/assets/boardroom-1.png"
+type = "image"
+title = "Boardroom meeting"
+
+[[generated]]
+id = "p72yfCanRw5Mih820Qlim"
+uri = "file://artifacts/alliance-street/src/assets/boardroom-2.png"
+type = "image"
+title = "Executive addressing team"
+
+[[generated]]
+id = "jRMvw37Fqi4Hp3tRqriLf"
+uri = "file://artifacts/alliance-street/src/assets/founder-portrait.png"
+type = "image"
+title = "Male founder portrait"
