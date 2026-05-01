@@ -1,23 +1,26 @@
 /**
  * Push the current branch to the ASG2 GitHub repository.
  *
- * Required environment variable:
- *   GITHUB_TOKEN  – Personal access token or fine-grained token with write
- *                   access to alliancestreetgoa-lang/ASG2.
+ * Required environment variable (checked in order):
+ *   GITHUB_PERSONAL_ACCESS_TOKEN  – Personal access token with repo write access.
+ *   GITHUB_TOKEN                  – Fallback token if the above is not set.
  *
  * Optional environment variables:
  *   FORCE_PUSH=1  – Pass --force to git push. Use with caution: this rewrites
  *                   remote history and cannot be undone. Off by default.
  *
  * Usage:
- *   GITHUB_TOKEN=<token> pnpm run push:github
- *   GITHUB_TOKEN=<token> FORCE_PUSH=1 pnpm run push:github
+ *   pnpm run push:github
+ *   FORCE_PUSH=1 pnpm run push:github
  */
 import { execFileSync } from "child_process";
 
-const token = process.env.GITHUB_TOKEN;
+const token =
+  process.env.GITHUB_PERSONAL_ACCESS_TOKEN ?? process.env.GITHUB_TOKEN;
 if (!token) {
-  console.error("Error: GITHUB_TOKEN environment variable is not set.");
+  console.error(
+    "Error: neither GITHUB_PERSONAL_ACCESS_TOKEN nor GITHUB_TOKEN is set."
+  );
   process.exit(1);
 }
 
