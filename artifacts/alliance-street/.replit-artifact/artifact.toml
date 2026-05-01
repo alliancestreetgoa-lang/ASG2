@@ -1,5 +1,5 @@
 kind = "web"
-previewPath = "/alliance-street/"
+previewPath = "/"
 title = "Alliance Street Group"
 version = "1.0.0"
 id = "artifacts/alliance-street"
@@ -11,7 +11,7 @@ version = "1.0.0"
 
 [[services]]
 name = "web"
-paths = [ "/alliance-street/" ]
+paths = [ "/" ]
 localPort = 19692
 
 [services.development]
@@ -28,4 +28,4 @@ to = "/index.html"
 
 [services.env]
 PORT = "19692"
-BASE_PATH = "/alliance-street/"
+BASE_PATH = "/"

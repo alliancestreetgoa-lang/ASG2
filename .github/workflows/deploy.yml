@@ -39,7 +39,7 @@ jobs:
       - name: Build Alliance Street site
         env:
           PORT: "3000"
-          BASE_PATH: "/ASG2/"
+          BASE_PATH: "/"
           NODE_ENV: production
         run: pnpm --filter @workspace/alliance-street run build
 
