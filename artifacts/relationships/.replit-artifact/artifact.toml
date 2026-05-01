@@ -1,5 +1,5 @@
 kind = "web"
-previewPath = "/"
+previewPath = "/relationships-removed/"
 title = "Relationship Tracker"
 version = "1.0.0"
 id = "artifacts/relationships"
@@ -11,21 +11,17 @@ version = "1.0.0"
 
 [[services]]
 name = "web"
-paths = [ "/" ]
+paths = [ "/relationships-removed/" ]
 localPort = 25104
 
 [services.development]
-run = "pnpm --filter @workspace/relationships run dev"
+run = "sleep infinity"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/relationships", "run", "build" ]
+build = [ "true" ]
 publicDir = "artifacts/relationships/dist/public"
 serve = "static"
 
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
-
 [services.env]
 PORT = "25104"
-BASE_PATH = "/"
+BASE_PATH = "/relationships-removed/"
